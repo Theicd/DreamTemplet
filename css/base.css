@@ -34,6 +34,47 @@
     z-index: 1;
   }
   
+  /* רקע תמונה עם שקיפות */
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://i.imgur.com/vSr93Qg.jpeg') center 100px no-repeat; /* הזזת התמונה יותר למטה */
+    background-size: 70%; /* הקטנת התמונה ל-70% מהגודל המקורי */
+    opacity: 0.15; /* שקיפות נמוכה כדי שהאנימציות ייראו */
+    z-index: 1.5; /* בין רקע הכוכבים לשכבת החלקיקים */
+    pointer-events: none; /* מאפשר קליקים לעבור דרך השכבה */
+    
+    /* אפקטים להחלקת המעברים */
+    filter: blur(1px) brightness(1.2); /* טשטוש קל והגברת בהירות */
+    box-shadow: inset 0 0 100px 50px rgba(15, 23, 42, 0.8); /* צל פנימי שמתמזג עם הרקע */
+    mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0) 70%); /* הפוך שקיפות גרדיאנטית מהמרכז החוצה */
+    -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0) 70%); /* תמיכה בספארי */
+    
+    /* אנימציית הבהוב עדינה */
+    animation: softPulse 8s infinite alternate; /* אנימציה איטית מאוד */
+  }
+  
+  /* התאמה למסכים קטנים (מובייל) */
+  @media screen and (max-width: 768px) {
+    .background-image {
+      background-size: 120%; /* הגדלת התמונה במסכים קטנים */
+      background-position: center 300px; /* הזזת התמונה הרבה יותר למטה במסך מובייל */
+      opacity: 0.2; /* הגדלת האטימות מעט */
+      mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.95) 40%, rgba(0,0,0,0) 90%); /* דעיכה איטית יותר לקצוות */
+      -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.95) 40%, rgba(0,0,0,0) 90%);
+      filter: blur(0.5px) brightness(1.3); /* פחות טשטוש */
+    }
+  }
+  
+  /* אנימציית הבהוב עדינה לתמונה */
+  @keyframes softPulse {
+    0% { opacity: 0.12; filter: blur(1.5px) brightness(1.1); }
+    100% { opacity: 0.18; filter: blur(0.8px) brightness(1.3); }
+  }
+  
   /* אנימציה לתנועת הכוכבים */
   @keyframes moveStars {
     0% { background-position: 0 0; }
