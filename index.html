@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="app-title">מחולל לוגו תלת־ממדי - דרימי לוגו AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <!-- קבצי CSS -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/top-bar.css">
+  <link rel="stylesheet" href="css/main-section.css">
+  <link rel="stylesheet" href="css/modals.css">
+  <link rel="stylesheet" href="css/bottom-nav.css">
+  <link rel="stylesheet" href="css/welcome-screen.css">
+</head>
+<body>
+  <!-- רקע מונפש -->
+  <div class="stars-background"></div>
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- סרגל עליון -->
+  <div class="top-bar">
+    <div class="logo" id="app-logo">דרימי לוגו AI</div>
+    <button class="api-btn" onclick="openApiModal()">הזן מפתח API</button>
+  </div>
+
+  <!-- חלק מרכזי -->
+  <div class="main-container">
+    <h1 id="main-header">מחולל לוגו תלת־ממדי</h1>
+    <div class="input-box">
+      <textarea id="user-input" placeholder="לדוגמה: בית קפה אורבני בשם Bean's" rows="3"></textarea>
+      <select id="style-select" onchange="updatePreview()">
+        <option value="cyberpunk">Cyberpunk Neon</option>
+        <option value="vintage">Vintage Retro</option>
+        <option value="futuristic" selected>Futuristic Tech</option>
+        <option value="fantasy">Fantasy Mystic</option>
+      </select>
+      <img id="preview-style" src="" alt="תצוגת סגנון">
+      <button class="generate-btn" onclick="generateOutput()">צור לוגו</button>
+    </div>
+    <div class="payment-link">
+      <p>אין לך מפתח API? <a href="#" onclick="openPaymentModal()">קנה מפתח ב-5 ש"ח</a> או <a href="#" onclick="openApiModal()">הזן מפתח קיים</a></p>
+    </div>
+    <div class="output" id="output-container"></div>
+  </div>
+
+  <!-- חלון הודעת הפתיחה -->
+  <div class="message-box" id="welcome-message"></div>
+
+  <!-- חלון הזנת מפתח API -->
+  <div class="api-modal" id="apiModal" style="display: none;"></div>
+
+  <!-- חלון רכישת מפתח -->
+  <div class="payment-modal" id="paymentModal" style="display: none;"></div>
+
+  <!-- חלון הודעות משתמש -->
+  <div class="message-box" id="user-message" style="display: none;"></div>
+
+  <!-- בורר תחתון -->
+  <nav class="bottom-navigation">
+    <ul class="nav-list">
+      <li class="nav-item active" data-target="generate">
+        <a href="#" class="nav-link"><span class="nav-icon"><i class="fas fa-magic"></i></span><span class="nav-text">צור</span></a>
+      </li>
+      <li class="nav-item" data-target="instructions">
+        <a href="#" class="nav-link"><span class="nav-icon"><i class="fas fa-book"></i></span><span class="nav-text">הוראות</span></a>
+      </li>
+      <li class="nav-item" data-target="about">
+        <a href="#" class="nav-link"><span class="nav-icon"><i class="fas fa-info-circle"></i></span><span class="nav-text">אודות</span></a>
+      </li>
+      <div class="nav-indicator">צור</div>
+      <div class="nav-indicator-mask"></div>
+      <div class="curve-left"></div>
+      <div class="curve-right"></div>
+    </ul>
+  </nav>
+
+  <!-- קבצי JavaScript -->
+  <script type="module">
+    import { openApiModal, closeApiModal, saveApiKey } from './js/api-modal.js';
+    import { openPaymentModal } from './js/payment-modal.js';
+    import { generateOutput } from './js/model-interaction.js';
+    import { closeWelcomeMessage } from './js/welcome-message.js';
+    import { showUserMessage, closeUserMessage } from './js/user-messages.js';
+
+    // הגדרת הפונקציות במרחב הגלובלי כדי שיהיו נגישות ב-HTML
+    window.openApiModal = openApiModal;
+    window.closeApiModal = closeApiModal;
+    window.saveApiKey = saveApiKey;
+    window.openPaymentModal = openPaymentModal;
+    window.generateOutput = generateOutput;
+    window.closeWelcomeMessage = closeWelcomeMessage;
+    window.closeUserMessage = closeUserMessage;
+
+    // טעינת שאר הסקריפטים
+    import './js/config.js';
+    import './js/particles.js';
+    import './js/welcome-message.js';
+    import './js/user-messages.js';
+    import './js/bottom-nav.js';
+  </script>
+</body>
+</html>

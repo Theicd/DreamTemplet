@@ -1,0 +1,375 @@
+/* welcome-screen.css - עיצוב מסך הפתיחה */
+
+/* כותרת מסך הפתיחה */
+.welcome-header {
+    background: linear-gradient(135deg, rgba(0, 136, 255, 0.5), rgba(72, 0, 255, 0.5));
+    border-radius: 10px 10px 0 0;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.welcome-header h3 {
+    margin: 0;
+    font-size: 1.4em;
+    background: linear-gradient(to right, #00f3ff, #ff00ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 5px rgba(0, 243, 255, 0.5);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+.welcome-header i {
+    margin: 0 10px;
+    animation: starPulse 2s infinite alternate;
+    color: #ffcc33;
+    text-shadow: 0 0 10px rgba(255, 204, 51, 0.8);
+}
+
+/* תוכן מסך הפתיחה */
+.welcome-content {
+    padding: 15px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.welcome-text {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* מחלק */
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.divider span {
+    flex-grow: 1;
+    height: 1px;
+    background: linear-gradient(to right, rgba(72, 136, 255, 0.1), rgba(72, 136, 255, 0.6), rgba(72, 136, 255, 0.1));
+    box-shadow: 0 0 5px rgba(72, 136, 255, 0.4);
+}
+
+/* רשימת מאפיינים */
+.features-container h4 {
+    color: #48f;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    text-shadow: 0 0 5px rgba(72, 136, 255, 0.6);
+}
+
+.features-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.features-list li {
+    display: flex;
+    margin-bottom: 12px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.features-list li:hover {
+    background: rgba(72, 136, 255, 0.1);
+    transform: translateX(-5px);
+}
+
+.feature-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0088ff, #6600ff);
+    border-radius: 50%;
+    margin-left: 15px;
+    box-shadow: 0 0 15px rgba(102, 0, 255, 0.5);
+}
+
+.feature-icon i {
+    color: white;
+    font-size: 1.2em;
+}
+
+.feature-text {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+/* מחירון */
+.pricing-container {
+    display: flex;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.pricing-badge {
+    width: 100px;
+    background: linear-gradient(135deg, #6600ff, #0088ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.badge-content {
+    text-align: center;
+    padding: 10px;
+    z-index: 1;
+}
+
+.badge-title {
+    display: block;
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 5px;
+}
+
+.badge-price {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.pricing-options {
+    flex-grow: 1;
+    padding: 15px;
+}
+
+.pricing-option {
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+.pricing-option i {
+    color: #00cc66;
+    margin-left: 10px;
+    font-size: 1.1em;
+    text-shadow: 0 0 8px rgba(0, 204, 102, 0.6);
+}
+
+.pricing-option.highlight {
+    background: rgba(0, 204, 102, 0.1);
+    padding: 8px;
+    border-radius: 5px;
+    border-right: 3px solid #0c6;
+}
+
+/* כפתור */
+.welcome-footer {
+    padding: 15px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 10px 10px;
+}
+
+/* אנימציות */
+@keyframes starPulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.3); opacity: 1; }
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px rgba(0, 243, 255, 0.5); }
+    100% { text-shadow: 0 0 10px rgba(0, 243, 255, 0.8); }
+}
+
+@keyframes ripple {
+    0% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 0.3; }
+    100% { opacity: 0; transform: scale(1.2); }
+}
+
+/* התאמה למובייל */
+@media (max-width: 480px) {
+    .pricing-container {
+        flex-direction: column;
+    }
+    
+    .pricing-badge {
+        width: 100%;
+        padding: 10px 0;
+    }
+    
+    .badge-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .badge-title, .badge-price {
+        margin: 0 5px;
+    }
+    
+    .features-list li:hover {
+        transform: none;
+    }
+}
+
+/* מודל API */
+.api-input-container {
+    margin: 20px 0;
+}
+
+.api-input-container input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(72, 136, 255, 0.5);
+    color: white;
+    font-size: 1.1em;
+    box-shadow: 0 0 15px rgba(72, 136, 255, 0.3);
+    transition: all 0.3s;
+}
+
+.api-input-container input:focus {
+    outline: none;
+    border-color: #48f;
+    box-shadow: 0 0 20px rgba(72, 136, 255, 0.5);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: white;
+}
+
+.glow-button.secondary {
+    background: linear-gradient(45deg, #333, #666);
+    margin-right: 10px;
+}
+
+.glow-button.secondary:hover {
+    background: linear-gradient(45deg, #444, #777);
+}
+
+/* התאמה למודלים */
+.api-modal, .payment-modal {
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 0;
+    width: 90%;
+    max-width: 400px;
+}
+
+.message-box {
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 0;
+    width: 90%;
+    max-width: 400px;
+}
+
+.message-box#welcome-message {
+    max-width: 500px;
+    width: 80%;
+}
+
+/* התאמה למסך קטן */
+@media (max-width: 480px) {
+    .welcome-footer {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .glow-button {
+        margin-bottom: 10px;
+    }
+    
+    .glow-button.secondary {
+        margin-right: 0;
+    }
+}
+
+/* הודעת טוען מעל תיבת הקלט */
+#user-message.loading-message {
+  position: fixed;
+  top: 230px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 500px;
+  height: 200px;
+  z-index: 100;
+  margin: 0 auto;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: var(--neon-shadow);
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid var(--primary-color);
+  animation: neonPulse 2s infinite;
+}
+
+/* הודעת הצלחה - אותו גודל ומיקום כמו הודעת טוען */
+#user-message {
+  position: fixed;
+  top: 230px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 500px;
+  height: 200px;
+  z-index: 100;
+  margin: 0 auto;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: var(--neon-shadow);
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid var(--primary-color);
+}
+
+/* אייקון טעינה מסתובב עם אפקט ניאון */
+.neon-spinner {
+  display: block;
+  width: 60px;
+  height: 60px;
+  margin: 15px auto;
+  border: 4px solid transparent;
+  border-top: 4px solid var(--primary-color);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color) inset;
+  animation: spin 1.5s linear infinite, neonGlow 2s ease-in-out infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes neonGlow {
+  0%, 100% { box-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color) inset; }
+  50% { box-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--primary-color) inset; }
+}
+
+@media (max-width: 480px) {
+  #user-message.loading-message,
+  #user-message {
+    width: 90%;
+  }
+}

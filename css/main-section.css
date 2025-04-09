@@ -1,0 +1,150 @@
+/* main-section.css - עיצוב החלק המרכזי של הדף */
+
+/* חלק מרכזי */
+.main-container {
+  position: relative;
+  top: 80px;
+  text-align: center;
+  z-index: 3;
+  padding: 20px;
+}
+
+/* כותרת ראשית */
+h1 {
+  font-size: 48px;
+  text-shadow: var(--text-shadow);
+  margin-bottom: 20px;
+}
+
+/* תיבת קלט */
+.input-box {
+  background: var(--glass-bg);
+  border: 2px solid var(--primary-color);
+  border-radius: 15px;
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;
+  margin: 0 auto 20px;
+  box-shadow: var(--neon-shadow);
+  animation: neonPulse 2s infinite;
+}
+
+/* אנימציית ניאון */
+@keyframes neonPulse {
+  0% { border-color: var(--primary-color); }
+  50% { border-color: var(--secondary-color); }
+  100% { border-color: var(--primary-color); }
+}
+
+/* תיבת טקסט לקלט משתמש */
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 16px;
+  resize: none;
+  outline: none;
+}
+
+/* בחירת סגנון */
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 2px solid var(--primary-color);
+  background: var(--glass-bg);
+  color: white;
+  font-size: 16px;
+  outline: none;
+  box-shadow: var(--neon-shadow);
+  animation: neonPulse 2s infinite;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: left 10px center;
+  padding-left: 40px;
+}
+
+select option {
+  background: #0f172a;
+  color: white;
+  font-size: 16px;
+}
+
+/* תמונת תצוגה מקדימה של סגנון */
+#preview-style {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  display: none;
+}
+
+/* כפתור יצירה */
+.generate-btn {
+  padding: 15px 30px;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  border: none;
+  border-radius: 15px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: var(--neon-shadow);
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.generate-btn:hover {
+  transform: scale(1.05);
+}
+
+/* קישור לרכישת מפתח */
+.payment-link {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-top: 10px;
+}
+
+.payment-link a {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+/* תצוגת תוצאות */
+.output {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.logo-card {
+  background: var(--glass-bg);
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: var(--neon-shadow);
+  width: 150px;
+  text-align: center;
+}
+
+.logo-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.logo-card p {
+  font-size: 14px;
+}
+
+/* התאמה למובייל */
+@media (max-width: 480px) {
+  h1 { font-size: 32px; }
+  .input-box { width: 90%; }
+}

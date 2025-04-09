@@ -1,0 +1,112 @@
+/* modals.css - עיצוב חלונות מודליים */
+
+/* חלון מודלי כללי (הודעות, הזנת מפתח, תשלום) */
+.message-box, .api-modal, .payment-modal {
+  position: fixed;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  padding: 30px;
+  border: 2px solid var(--primary-color);
+  border-radius: 15px;
+  text-align: center;
+  z-index: 1001;
+  box-shadow: var(--neon-shadow);
+  width: 80%;
+  max-width: 500px;
+}
+
+/* התאמת מיקום לחלונות ספציפיים */
+.api-modal, .payment-modal {
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 350px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* כותרת בחלון מודלי */
+.message-box h3, .api-modal h3, .payment-modal h3 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  text-shadow: var(--text-shadow);
+}
+
+/* פסקה בחלון מודלי */
+.message-box p, .api-modal p, .payment-modal p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* כפתור בחלון מודלי */
+.glow-button {
+  background: linear-gradient(45deg, #0088ff, #6600ff);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-size: 1.1em;
+  cursor: pointer;
+  box-shadow: var(--neon-shadow);
+  transition: all 0.3s;
+}
+
+.glow-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(102, 0, 255, 0.7);
+}
+
+/* קלט בחלון מודלי */
+.api-modal input, .payment-modal input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--primary-color);
+  color: white;
+  border-radius: 8px;
+}
+
+/* כפתור סגירה */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(45deg, #0088ff, #6600ff);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+}
+
+/* כפתור משני */
+.api-modal .secondary-btn, .payment-modal .secondary-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--primary-color);
+  width: 100%;
+  padding: 12px;
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* התאמה למובייל */
+@media (max-width: 480px) {
+  .message-box, .api-modal, .payment-modal {
+    width: 85%;
+  }
+  .message-box h3, .api-modal h3, .payment-modal h3 {
+    font-size: 24px;
+  }
+  .message-box p, .api-modal p, .payment-modal p {
+    font-size: 16px;
+  }
+  .api-modal, .payment-modal {
+    width: 95%;
+    max-height: 85vh;
+  }
+}
